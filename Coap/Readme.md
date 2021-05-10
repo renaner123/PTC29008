@@ -1,4 +1,6 @@
 # Protocolo de comunicação seguindo a RFC 7252 (CoAP)
+
+## Sumário
 + [Descrição](#descricao)
 + [Especificação](#especificacao)
 + [Máquina de estado](#modelo)
@@ -9,7 +11,7 @@
 
 <div id='descricao'/>
 
-## 📋 Descrição [](#){name=example}
+## 📋 Descrição
 
 >Projeto consiste no desenvolvimento de um protocolo de aplicação CoAP, tendo como
 base a RFC 7252 em que foram seguidas suas especificações para implementar um protótipo de
@@ -22,7 +24,10 @@ transmitidas por links sem-fio ponto-a-aponto.
 
 >O formato de mensagens utilizado por esse protocolo segue a RFC 7252. Descrição de cada campo assim como o seu valor se encontram logo abaixo.
 
-![msg_format](img/./Msg_format.png)
+<p align="center">
+  <img src="img/./Msg_format.png" />
+</p>
+
 
 + **Ver:** 2-bit unsigned interger, sendo esses bits 01, representando a versão.
 + **T:** 2-bit unsigned interger, nesse caso as mensagens enviadas são sempre confirmáveis,
@@ -169,12 +174,17 @@ através do método Do_Post() disponível no mesmo. Logo em seguida, faz o despa
 Imagem abaixo mostra o monitoramento feito na transmissão da aplicação-servidor. Inicialmente a aplicação envia um Post com Config, contendo o nome da placa e os nomes dos sensores a serem monitorados. O servidor responde com created com payload contendo o valor do período que
 a aplicação deve ficar enviando os dados. Como pode se observar, o tempo foi de 5 segundos. Por fim, mostra a retransmissão quando o servidor está indisponível
 
-![log](./img/Wireshark_CoAP.png)
-
+<p align="center">
+  <img src="./img/Wireshark_CoAP.png" />
+</p>
 
 Alguns sensores que foram enviados/cadastrados no servidor. Essas informações estão contidas no banco de dados do servidor.
 
-![log](./img/dump_sensor.png)
+<p align="center">
+  <img src="./img/dump_sensor.png" />
+</p>
+
+
 
 Alguns valores de amostras coletadas pela aplicação e enviado ao servidor
 
