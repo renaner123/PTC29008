@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module session_manage</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>session_manage</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/renan/Área de trabalho/Projeto 1 PTC/Projeto1_PTC-Time_Out_Funcionando/session_manage.py">/home/renan/Área de trabalho/Projeto 1 PTC/Projeto1_PTC-Time_Out_Funcionando/session_manage.py</a></font></td></tr></table>
+    <p><tt>@author:&nbsp;Renan&nbsp;Rodolfo&nbsp;&amp;&nbsp;Marina&nbsp;Souza</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="crc.html">crc</a><br>
+<a href="enum.html">enum</a><br>
+</td><td width="25%" valign=top><a href="poller.html">poller</a><br>
+<a href="pydoc.html">pydoc</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="poller.html#Layer">poller.Layer</a>(<a href="poller.html#Callback">poller.Callback</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="session_manage.html#Session_Manager">Session_Manager</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Session_Manager">class <strong>Session_Manager</strong></a>(<a href="poller.html#Layer">poller.Layer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Camada&nbsp;responsável&nbsp;por&nbsp;contruir&nbsp;camada&nbsp;de&nbsp;Gerenciamento&nbsp;de&nbsp;Sessão<br>
+&nbsp;<br>
+Algumas&nbsp;váriaveis&nbsp;globais:<br>
+cr:&nbsp;conection&nbsp;request<br>
+cc:&nbsp;conection&nbsp;confirm<br>
+Kr:&nbsp;Keep&nbsp;Alive&nbsp;Request<br>
+kc:&nbsp;Keep&nbsp;Alive&nbsp;confirm<br>
+dr:&nbsp;desconection&nbsp;request<br>
+dc:&nbsp;Desconection&nbsp;Confirm<br>
+ca:&nbsp;Connect&nbsp;Acknowledge<br>
+start:&nbsp;9&nbsp;Usado&nbsp;para&nbsp;iniciar&nbsp;enviando&nbsp;um&nbsp;cr<br>
+ID_Session:&nbsp;Identifica&nbsp;o&nbsp;número&nbsp;da&nbsp;sessão&nbsp;estabelecida<br>
+ID_Proto_session:&nbsp;Identifica&nbsp;que&nbsp;um&nbsp;quadro&nbsp;é&nbsp;para&nbsp;o&nbsp;Gerenciamento&nbsp;de&nbsp;Sessão<br>
+ID_Proto_ARQ:&nbsp;Identifica&nbsp;que&nbsp;que&nbsp;é&nbsp;um&nbsp;quadro&nbsp;para&nbsp;o&nbsp;ARQ<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="session_manage.html#Session_Manager">Session_Manager</a></dd>
+<dd><a href="poller.html#Layer">poller.Layer</a></dd>
+<dd><a href="poller.html#Callback">poller.Callback</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Session_Manager-Get_Fake"><strong>Get_Fake</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;um&nbsp;objeto&nbsp;da&nbsp;camada&nbsp;Fake&nbsp;utilizada&nbsp;para&nbsp;ter&nbsp;interação&nbsp;com&nbsp;o&nbsp;teclado&nbsp;e&nbsp;pode&nbsp;ativar/desativar<br>
+o&nbsp;gerenciamento&nbsp;de&nbsp;eventos&nbsp;do&nbsp;poller&nbsp;sobre&nbsp;ele.</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-Get_Tun"><strong>Get_Tun</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;um&nbsp;objeto&nbsp;da&nbsp;camada&nbsp;Tun&nbsp;utilizada&nbsp;para&nbsp;Ativar/Desativar&nbsp;a&nbsp;camada.</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-Mock_Quadro"><strong>Mock_Quadro</strong></a>(self)</dt><dd><tt>Retorna&nbsp;um&nbsp;quadro&nbsp;padrão&nbsp;com&nbsp;valor&nbsp;de&nbsp;ID&nbsp;Proto&nbsp;utilizado&nbsp;para&nbsp;enviar<br>
+mensagens&nbsp;de&nbsp;controle&nbsp;para&nbsp;o&nbsp;Gerenciamento&nbsp;de&nbsp;Sessão.</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-Recebe_arq"><strong>Recebe_arq</strong></a>(self, quadro)</dt><dd><tt>Recebe&nbsp;um&nbsp;quadro&nbsp;da&nbsp;camada&nbsp;ARQ,&nbsp;que&nbsp;contenha&nbsp;ID_Proto_session&nbsp;com&nbsp;valor&nbsp;255&nbsp;e&nbsp;joga&nbsp;para&nbsp;<br>
+a&nbsp;máquina&nbsp;de&nbsp;estado&nbsp;fazer&nbsp;o&nbsp;processamento.<br>
+&nbsp;<br>
+A&nbsp;máquina&nbsp;possui&nbsp;os&nbsp;seguintes&nbsp;estados:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DISC:&nbsp;desconectado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HAND1:&nbsp;em&nbsp;negociação&nbsp;para&nbsp;estabelecimento&nbsp;de&nbsp;conexão,&nbsp;quando&nbsp;tomou&nbsp;a&nbsp;iniciativa&nbsp;de&nbsp;estabelecê-la<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HAND2:&nbsp;em&nbsp;negociação&nbsp;para&nbsp;estabelecimento&nbsp;de&nbsp;conexão,&nbsp;quando&nbsp;o&nbsp;outro&nbsp;lado&nbsp;tomou&nbsp;a&nbsp;iniciativa<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CON:&nbsp;conectado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CHECK:&nbsp;aguardando&nbsp;resposta&nbsp;para&nbsp;Keep&nbsp;Alive<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HALF1:&nbsp;em&nbsp;estado&nbsp;de&nbsp;terminação&nbsp;de&nbsp;enlace&nbsp;(half-close),&nbsp;quando&nbsp;tomou&nbsp;a&nbsp;iniciativa&nbsp;de&nbsp;terminá-lo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HALF2:&nbsp;em&nbsp;estado&nbsp;de&nbsp;terminação&nbsp;de&nbsp;enlace&nbsp;(half-close),&nbsp;quando&nbsp;o&nbsp;outro&nbsp;lado&nbsp;tomou&nbsp;a&nbsp;iniciativa</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-Send_to_Arq"><strong>Send_to_Arq</strong></a>(self, quadro)</dt><dd><tt>Recebe&nbsp;um&nbsp;quadro&nbsp;e&nbsp;encaminha&nbsp;para&nbsp;o&nbsp;envia_byte&nbsp;do&nbsp;Enquadramento,&nbsp;para&nbsp;jogar&nbsp;na&nbsp;serial</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-Start_Conection"><strong>Start_Conection</strong></a>(self)</dt><dd><tt>Quando&nbsp;um&nbsp;lado&nbsp;chamada&nbsp;esse&nbsp;método,&nbsp;ele&nbsp;joga&nbsp;para&nbsp;o&nbsp;<a href="#Session_Manager-Recebe_arq">Recebe_arq</a>()&nbsp;um&nbsp;valor&nbsp;9,&nbsp;que&nbsp;a&nbsp;máquina<br>
+identifica&nbsp;como&nbsp;start&nbsp;e&nbsp;envia&nbsp;um&nbsp;cr&nbsp;para&nbsp;tentar&nbsp;iniciar&nbsp;uma&nbsp;conexão.</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-__init__"><strong>__init__</strong></a>(self, obj, timeout<font color="#909090">=5</font>)</dt><dd><tt>Recebe&nbsp;como&nbsp;parâmetro&nbsp;None&nbsp;como&nbsp;&nbsp;objeto&nbsp;e&nbsp;um&nbsp;valor&nbsp;de&nbsp;Timeout&nbsp;desejado,&nbsp;que&nbsp;por&nbsp;padrão&nbsp;<br>
+está&nbsp;5.<br>
+&nbsp;<br>
+Aux_con:&nbsp;Utilizado&nbsp;quando&nbsp;os&nbsp;dois&nbsp;lados&nbsp;tem&nbsp;a&nbsp;iniciativa&nbsp;de&nbsp;estabelecer&nbsp;uma&nbsp;conexão&nbsp;e&nbsp;estão&nbsp;no&nbsp;estado&nbsp;Hand1<br>
+On_OFF_TOP:&nbsp;Utilizado&nbsp;para&nbsp;ativar&nbsp;e&nbsp;desativar&nbsp;a&nbsp;camada&nbsp;superior<br>
+quadro_controle:&nbsp;Recebe&nbsp;o&nbsp;quadro&nbsp;que&nbsp;deverá&nbsp;ser&nbsp;enviado&nbsp;para&nbsp;o&nbsp;Gerenciamento&nbsp;de&nbsp;Sessão.</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-get_Arq"><strong>get_Arq</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;um&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;Enquadramento&nbsp;ao&nbsp;iniciar&nbsp;do&nbsp;sistema(Envia.py&nbsp;e&nbsp;recebe.py)</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-handle"><strong>handle</strong></a>(self)</dt><dd><tt>Não&nbsp;utilizado</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-handle_timeout"><strong>handle_timeout</strong></a>(self)</dt><dd><tt>Chamada&nbsp;pelo&nbsp;poller.py&nbsp;quando&nbsp;ocorre&nbsp;um&nbsp;evento&nbsp;de&nbsp;timeout.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>Check</strong> = 4</dl>
+
+<dl><dt><strong>Con</strong> = 3</dl>
+
+<dl><dt><strong>DATA0</strong> = 0</dl>
+
+<dl><dt><strong>DATA1</strong> = 8</dl>
+
+<dl><dt><strong>Disc</strong> = 0</dl>
+
+<dl><dt><strong>Half1</strong> = 5</dl>
+
+<dl><dt><strong>Half2</strong> = 6</dl>
+
+<dl><dt><strong>Hand1</strong> = 1</dl>
+
+<dl><dt><strong>Hand2</strong> = 2</dl>
+
+<dl><dt><strong>ID_Proto_ARQ</strong> = 0</dl>
+
+<dl><dt><strong>ID_Proto_session</strong> = 255</dl>
+
+<dl><dt><strong>ID_Session</strong> = 50</dl>
+
+<dl><dt><strong>Kr</strong> = 2</dl>
+
+<dl><dt><strong>ca</strong> = 7</dl>
+
+<dl><dt><strong>cc</strong> = 1</dl>
+
+<dl><dt><strong>cr</strong> = 0</dl>
+
+<dl><dt><strong>dc</strong> = 5</dl>
+
+<dl><dt><strong>dr</strong> = 4</dl>
+
+<dl><dt><strong>kc</strong> = 3</dl>
+
+<dl><dt><strong>start</strong> = 9</dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Layer">poller.Layer</a>:<br>
+<dl><dt><a name="Session_Manager-get_framming"><strong>get_framming</strong></a>(self, dade)</dt></dl>
+
+<dl><dt><a name="Session_Manager-notifyLayer"><strong>notifyLayer</strong></a>(self, date)</dt></dl>
+
+<dl><dt><a name="Session_Manager-sendToLayer"><strong>sendToLayer</strong></a>(self, date)</dt></dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><a name="Session_Manager-backoff"><strong>backoff</strong></a>(self)</dt><dd><tt>Modifica&nbsp;o&nbsp;base_timeout&nbsp;para&nbsp;um&nbsp;valor&nbsp;de&nbsp;1&nbsp;a&nbsp;7.</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-check_interval_Time"><strong>check_interval_Time</strong></a>(self)</dt><dd><tt>Utilizado&nbsp;para&nbsp;cada&nbsp;10&nbsp;segundos&nbsp;fazer&nbsp;um&nbsp;ckeck&nbsp;de&nbsp;conexão.&nbsp;Utilizado&nbsp;no&nbsp;session_manage.py</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-disable"><strong>disable</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-disable_timeout"><strong>disable_timeout</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-enable"><strong>enable</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-enable_timeout"><strong>enable_timeout</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-reload_timeout"><strong>reload_timeout</strong></a>(self)</dt><dd><tt>Recarrega&nbsp;o&nbsp;valor&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Session_Manager-update"><strong>update</strong></a>(self, dt)</dt><dd><tt>Atualiza&nbsp;o&nbsp;tempo&nbsp;restante&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><strong>isEnabled</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;estiver&nbsp;ativado&nbsp;neste&nbsp;callback</tt></dd>
+</dl>
+<dl><dt><strong>isTimer</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;este&nbsp;callback&nbsp;for&nbsp;um&nbsp;timer</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+</dl>
+<dl><dt><strong>timeout_enabled</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

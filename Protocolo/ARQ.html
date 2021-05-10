@@ -1,0 +1,173 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ARQ</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ARQ</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/renan/Área de trabalho/Projeto 1 PTC/Projeto1_PTC-Time_Out_Funcionando/ARQ.py">/home/renan/Área de trabalho/Projeto 1 PTC/Projeto1_PTC-Time_Out_Funcionando/ARQ.py</a></font></td></tr></table>
+    <p><tt>@author:&nbsp;Renan&nbsp;Rodolfo&nbsp;&amp;&nbsp;Marina&nbsp;Souza</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="crc.html">crc</a><br>
+<a href="enum.html">enum</a><br>
+</td><td width="25%" valign=top><a href="poller.html">poller</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="poller.html#Layer">poller.Layer</a>(<a href="poller.html#Callback">poller.Callback</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ARQ.html#Arq">Arq</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Arq">class <strong>Arq</strong></a>(<a href="poller.html#Layer">poller.Layer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>ARQ&nbsp;e&nbsp;Aloha:&nbsp;Classe&nbsp;responsável&nbsp;por&nbsp;construir&nbsp;a&nbsp;camada&nbsp;de&nbsp;garantia&nbsp;de&nbsp;entrega&nbsp;<br>
+do&nbsp;tipo&nbsp;para-e-espera(ARQ)&nbsp;e&nbsp;controle&nbsp;de&nbsp;acesso&nbsp;ao&nbsp;meio(Aloha).<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="ARQ.html#Arq">Arq</a></dd>
+<dd><a href="poller.html#Layer">poller.Layer</a></dd>
+<dd><a href="poller.html#Callback">poller.Callback</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Arq-Aloha"><strong>Aloha</strong></a>(self)</dt><dd><tt>Foi&nbsp;definido&nbsp;o&nbsp;Aloha&nbsp;do&nbsp;tipo&nbsp;aleatório,&nbsp;onde&nbsp;cada&nbsp;Ack&nbsp;recebido&nbsp;irá&nbsp;fazer&nbsp;com&nbsp;que&nbsp;ocorra&nbsp;um<br>
+Backoff()&nbsp;com&nbsp;tempo&nbsp;aleatório&nbsp;de&nbsp;1&nbsp;a&nbsp;7,&nbsp;para&nbsp;evitar&nbsp;as&nbsp;colisões.&nbsp;Caso&nbsp;haja&nbsp;colisão,&nbsp;o&nbsp;quadro<br>
+é&nbsp;descartado.</tt></dd></dl>
+
+<dl><dt><a name="Arq-Fsm_arq"><strong>Fsm_arq</strong></a>(self, recebe_fake)</dt><dd><tt>Recebe&nbsp;uma&nbsp;mensagem&nbsp;proveniente&nbsp;das&nbsp;camadas&nbsp;fake/Tun&nbsp;e&nbsp;encaminha&nbsp;para&nbsp;o&nbsp;Enquadramento&nbsp;<br>
+com&nbsp;as&nbsp;inforamações&nbsp;de&nbsp;identificação&nbsp;de&nbsp;um&nbsp;quadro&nbsp;utilizando&nbsp;&nbsp;os&nbsp;métodos&nbsp;<a href="#Arq-send_Data0">send_Data0</a>()&nbsp;<br>
+e&nbsp;<a href="#Arq-send_Data1">send_Data1</a>().</tt></dd></dl>
+
+<dl><dt><a name="Arq-__init__"><strong>__init__</strong></a>(self, obj, timeout<font color="#909090">=5</font>)</dt><dd><tt>Define&nbsp;a&nbsp;camada&nbsp;responsável&nbsp;pelo&nbsp;ARQ&nbsp;e&nbsp;Aloha,&nbsp;recebe&nbsp;como&nbsp;parâmetro&nbsp;o&nbsp;tempo&nbsp;de&nbsp;timeout&nbsp;e<br>
+o&nbsp;objeto&nbsp;que&nbsp;será&nbsp;utilizado&nbsp;pelo&nbsp;"poller.py"&nbsp;para&nbsp;fazer&nbsp;o&nbsp;monitoramento&nbsp;dos&nbsp;eventos,&nbsp;que&nbsp;nesse<br>
+caso&nbsp;será&nbsp;somente&nbsp;o&nbsp;Timeout,&nbsp;o&nbsp;objeto&nbsp;deverá&nbsp;ser&nbsp;None.<br>
+&nbsp;<br>
+As&nbsp;variaveis&nbsp;encontradas&nbsp;em&nbsp;"Data&nbsp;and&nbsp;other&nbsp;attributes&nbsp;defined&nbsp;here:"&nbsp;foram&nbsp;pré&nbsp;estabelecidos&nbsp;<br>
+para&nbsp;o&nbsp;funcionamento&nbsp;do&nbsp;protocolo&nbsp;exceto&nbsp;o&nbsp;ID_Session,&nbsp;ID_Proto_session&nbsp;e&nbsp;<br>
+ID_Preto_ARQ&nbsp;que&nbsp;foram&nbsp;definidos&nbsp;estaticamente&nbsp;por&nbsp;nós.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Funcionalidade&nbsp;de&nbsp;algumas&nbsp;variáveis.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+state&nbsp;:&nbsp;Responsável&nbsp;pela&nbsp;máquina&nbsp;de&nbsp;estado<br>
+envia_date_backoff:&nbsp;Caso&nbsp;receba&nbsp;Ack&nbsp;errado,&nbsp;após&nbsp;o&nbsp;backoff&nbsp;encaminha&nbsp;o&nbsp;Data&nbsp;espeficado&nbsp;pelo&nbsp;envia_date_backoff<br>
+cont_reenvio:&nbsp;Limita&nbsp;a&nbsp;quantidade&nbsp;de&nbsp;tentativas&nbsp;de&nbsp;transmissão<br>
+envia_bot:&nbsp;Irá&nbsp;receber&nbsp;o&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;Enquadramento&nbsp;para&nbsp;enviar&nbsp;quadros&nbsp;para&nbsp;camada&nbsp;de&nbsp;baixo</tt></dd></dl>
+
+<dl><dt><a name="Arq-get_Manager"><strong>get_Manager</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;&nbsp;o&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;session_manage&nbsp;para&nbsp;ser&nbsp;utilizado&nbsp;no&nbsp;método&nbsp;<a href="#Arq-notifyLayer">notifyLayer</a>().&nbsp;<br>
+Responsável&nbsp;por&nbsp;enviar&nbsp;esse&nbsp;objeto&nbsp;é&nbsp;o&nbsp;Envia.py&nbsp;e&nbsp;recebe.py&nbsp;ao&nbsp;iniciar</tt></dd></dl>
+
+<dl><dt><a name="Arq-get_Tun"><strong>get_Tun</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;um&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;Tun&nbsp;para&nbsp;notificar&nbsp;a&nbsp;aplicação&nbsp;quando&nbsp;<br>
+receber&nbsp;um&nbsp;quadro&nbsp;com&nbsp;proto&nbsp;diferente&nbsp;de&nbsp;255</tt></dd></dl>
+
+<dl><dt><a name="Arq-get_framming"><strong>get_framming</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;um&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;Enquadramento,&nbsp;responsável&nbsp;por&nbsp;enviar&nbsp;os&nbsp;quadros&nbsp;para&nbsp;camada&nbsp;de&nbsp;baixo.<br>
+Quem&nbsp;envia&nbsp;esse&nbsp;objeto&nbsp;são&nbsp;Envia.py&nbsp;e&nbsp;recebe.py</tt></dd></dl>
+
+<dl><dt><a name="Arq-handle"><strong>handle</strong></a>(self)</dt><dd><tt>Não&nbsp;está&nbsp;sendo&nbsp;utilizado</tt></dd></dl>
+
+<dl><dt><a name="Arq-handle_timeout"><strong>handle_timeout</strong></a>(self)</dt><dd><tt>Timeout&nbsp;que&nbsp;está&nbsp;sendo&nbsp;monitorado&nbsp;pelo&nbsp;"poller.py"&nbsp;assim&nbsp;que&nbsp;a&nbsp;camada&nbsp;não&nbsp;estiver&nbsp;recebendo&nbsp;nem<br>
+transmitindo&nbsp;nada.</tt></dd></dl>
+
+<dl><dt><a name="Arq-notifyLayer"><strong>notifyLayer</strong></a>(self, date)</dt><dd><tt>Retorna&nbsp;para&nbsp;a&nbsp;camada&nbsp;superior,&nbsp;que&nbsp;nesse&nbsp;caso&nbsp;é&nbsp;o&nbsp;session_manage,&nbsp;o&nbsp;quadro&nbsp;que&nbsp;chegar&nbsp;no&nbsp;<br>
+<a href="#Arq-recebe_serial">recebe_serial</a>()&nbsp;e&nbsp;tiver&nbsp;o&nbsp;ID_Proto_Session&nbsp;=&nbsp;255&nbsp;.</tt></dd></dl>
+
+<dl><dt><a name="Arq-recebe_serial"><strong>recebe_serial</strong></a>(self, date)</dt><dd><tt>Recebe&nbsp;os&nbsp;quadros&nbsp;vindos&nbsp;do&nbsp;Enquadramento,&nbsp;verifica&nbsp;se&nbsp;possui&nbsp;informação&nbsp;de&nbsp;controle&nbsp;para&nbsp;<br>
+notificar&nbsp;a&nbsp;camada&nbsp;superior&nbsp;"session_manage"&nbsp;ou&nbsp;se&nbsp;é&nbsp;apenas&nbsp;informação&nbsp;da&nbsp;camada&nbsp;Fake/Tun<br>
+date&nbsp;=&nbsp;0&nbsp;50&nbsp;255&nbsp;Info&nbsp;por&nbsp;exemplo&nbsp;<br>
+Caso&nbsp;o&nbsp;date[1]&nbsp;seja&nbsp;diferente&nbsp;do&nbsp;estabelecido,&nbsp;o&nbsp;quadro&nbsp;é&nbsp;descartado<br>
+Caso&nbsp;o&nbsp;date[2]&nbsp;seja&nbsp;255&nbsp;e&nbsp;tenha&nbsp;dado&nbsp;de&nbsp;controle,&nbsp;será&nbsp;notificado&nbsp;para&nbsp;session_manage</tt></dd></dl>
+
+<dl><dt><a name="Arq-sendACK0"><strong>sendACK0</strong></a>(self)</dt><dd><tt>Envia&nbsp;para&nbsp;o&nbsp;Enquadramento&nbsp;um&nbsp;quadro&nbsp;contendo&nbsp;a&nbsp;informação&nbsp;do&nbsp;ACK0&nbsp;mais&nbsp;as&nbsp;<br>
+informações&nbsp;de&nbsp;identificação&nbsp;da&nbsp;sessão.<br>
+ACK0&nbsp;=&nbsp;0X80h&nbsp;=&nbsp;128d</tt></dd></dl>
+
+<dl><dt><a name="Arq-sendACK1"><strong>sendACK1</strong></a>(self)</dt><dd><tt>Envia&nbsp;para&nbsp;o&nbsp;Enquadramento&nbsp;um&nbsp;quadro&nbsp;contendo&nbsp;a&nbsp;informação&nbsp;do&nbsp;ACK1&nbsp;mais&nbsp;as&nbsp;<br>
+informações&nbsp;de&nbsp;identificação&nbsp;da&nbsp;sessão<br>
+ACK1&nbsp;=&nbsp;0X88h&nbsp;=&nbsp;136d</tt></dd></dl>
+
+<dl><dt><a name="Arq-send_Data0"><strong>send_Data0</strong></a>(self)</dt><dd><tt>Envia&nbsp;para&nbsp;o&nbsp;Enquadramento&nbsp;um&nbsp;quadro&nbsp;contendo&nbsp;a&nbsp;informação&nbsp;de&nbsp;Data0&nbsp;mais&nbsp;as&nbsp;informações&nbsp;de&nbsp;identificação&nbsp;da&nbsp;sessão<br>
+junto&nbsp;com&nbsp;a&nbsp;mensagem/informação&nbsp;a&nbsp;ser&nbsp;transmitda.<br>
+Data0&nbsp;=&nbsp;0x00&nbsp;=&nbsp;0d</tt></dd></dl>
+
+<dl><dt><a name="Arq-send_Data1"><strong>send_Data1</strong></a>(self)</dt><dd><tt>Envia&nbsp;para&nbsp;o&nbsp;Enquadramento&nbsp;um&nbsp;quadro&nbsp;contendo&nbsp;a&nbsp;informação&nbsp;de&nbsp;Data1&nbsp;mais&nbsp;as&nbsp;informações&nbsp;de&nbsp;identificação&nbsp;da&nbsp;sessão<br>
+junto&nbsp;com&nbsp;a&nbsp;mensagem/informação&nbsp;a&nbsp;ser&nbsp;transmitda.<br>
+Data1&nbsp;=&nbsp;0x08&nbsp;=&nbsp;8d</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ACK0</strong> = 128</dl>
+
+<dl><dt><strong>ACK1</strong> = 136</dl>
+
+<dl><dt><strong>DATA0</strong> = 0</dl>
+
+<dl><dt><strong>DATA1</strong> = 8</dl>
+
+<dl><dt><strong>ID_Proto_ARQ</strong> = 0</dl>
+
+<dl><dt><strong>ID_Proto_Tun</strong> = 48</dl>
+
+<dl><dt><strong>ID_Proto_session</strong> = 255</dl>
+
+<dl><dt><strong>ID_Session</strong> = 50</dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Layer">poller.Layer</a>:<br>
+<dl><dt><a name="Arq-sendToLayer"><strong>sendToLayer</strong></a>(self, date)</dt></dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><a name="Arq-backoff"><strong>backoff</strong></a>(self)</dt><dd><tt>Modifica&nbsp;o&nbsp;base_timeout&nbsp;para&nbsp;um&nbsp;valor&nbsp;de&nbsp;1&nbsp;a&nbsp;7.</tt></dd></dl>
+
+<dl><dt><a name="Arq-check_interval_Time"><strong>check_interval_Time</strong></a>(self)</dt><dd><tt>Utilizado&nbsp;para&nbsp;cada&nbsp;10&nbsp;segundos&nbsp;fazer&nbsp;um&nbsp;ckeck&nbsp;de&nbsp;conexão.&nbsp;Utilizado&nbsp;no&nbsp;session_manage.py</tt></dd></dl>
+
+<dl><dt><a name="Arq-disable"><strong>disable</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="Arq-disable_timeout"><strong>disable_timeout</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Arq-enable"><strong>enable</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="Arq-enable_timeout"><strong>enable_timeout</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Arq-reload_timeout"><strong>reload_timeout</strong></a>(self)</dt><dd><tt>Recarrega&nbsp;o&nbsp;valor&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Arq-update"><strong>update</strong></a>(self, dt)</dt><dd><tt>Atualiza&nbsp;o&nbsp;tempo&nbsp;restante&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><strong>isEnabled</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;estiver&nbsp;ativado&nbsp;neste&nbsp;callback</tt></dd>
+</dl>
+<dl><dt><strong>isTimer</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;este&nbsp;callback&nbsp;for&nbsp;um&nbsp;timer</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+</dl>
+<dl><dt><strong>timeout_enabled</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

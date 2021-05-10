@@ -1,0 +1,140 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Framming</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Framming</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/renan/Área de trabalho/Projeto 1 PTC/Projeto1_PTC-Time_Out_Funcionando/Framming.py">/home/renan/Área de trabalho/Projeto 1 PTC/Projeto1_PTC-Time_Out_Funcionando/Framming.py</a></font></td></tr></table>
+    <p><tt>@author:&nbsp;Renan&nbsp;Rodolfo&nbsp;&amp;&nbsp;Marina&nbsp;Souza</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="crc.html">crc</a><br>
+</td><td width="25%" valign=top><a href="poller.html">poller</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="poller.html#Layer">poller.Layer</a>(<a href="poller.html#Callback">poller.Callback</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Framming.html#Enquadramento">Enquadramento</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Enquadramento">class <strong>Enquadramento</strong></a>(<a href="poller.html#Layer">poller.Layer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Essa&nbsp;camada&nbsp;é&nbsp;responsável&nbsp;por&nbsp;Contruir&nbsp;o&nbsp;<a href="#Enquadramento">Enquadramento</a>&nbsp;e&nbsp;Detecção&nbsp;de&nbsp;erros&nbsp;com&nbsp;CRC-16.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="Framming.html#Enquadramento">Enquadramento</a></dd>
+<dd><a href="poller.html#Layer">poller.Layer</a></dd>
+<dd><a href="poller.html#Callback">poller.Callback</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Enquadramento-Close_Conection"><strong>Close_Conection</strong></a>(self)</dt><dd><tt>Utilizado&nbsp;para&nbsp;fechar&nbsp;a&nbsp;conexão&nbsp;da&nbsp;serial&nbsp;utilizada.</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-__init__"><strong>__init__</strong></a>(self, dev)</dt><dd><tt>Para&nbsp;contrui-lá&nbsp;é&nbsp;necessário&nbsp;passar&nbsp;como&nbsp;parâmetro&nbsp;o&nbsp;timeout&nbsp;desejado&nbsp;e&nbsp;o&nbsp;objeto&nbsp;<br>
+contendo&nbsp;as&nbsp;informações&nbsp;da&nbsp;serial&nbsp;para&nbsp;ser&nbsp;utilizado&nbsp;Ex.:&nbsp;<br>
+serial.Serial('/dev/pts/5',&nbsp;9600,&nbsp;timeout=5)<br>
+&nbsp;<br>
+Funcionalidade&nbsp;de&nbsp;algumas&nbsp;variáveis.<br>
+buffer:&nbsp;Onde&nbsp;será&nbsp;armazenado&nbsp;os&nbsp;quadros&nbsp;transmitods&nbsp;<br>
+bit:&nbsp;Onde&nbsp;é&nbsp;armazenado&nbsp;o&nbsp;que&nbsp;é&nbsp;lido&nbsp;da&nbsp;serial<br>
+quadro:&nbsp;Apenas&nbsp;informa&nbsp;quando&nbsp;ocorre&nbsp;o&nbsp;recebimento&nbsp;de&nbsp;um&nbsp;quadro&nbsp;completo<br>
+fcs:&nbsp;Recebe&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;CRC16&nbsp;para&nbsp;efetuar&nbsp;o&nbsp;cálculo.<br>
+temp:&nbsp;Utilizado&nbsp;para&nbsp;fazer&nbsp;o&nbsp;estufamento&nbsp;dos&nbsp;bytes&nbsp;recebidos</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-envia_byte"><strong>envia_byte</strong></a>(self, dado)</dt><dd><tt>Recebe&nbsp;um&nbsp;quadro,&nbsp;faz&nbsp;o&nbsp;cálculo&nbsp;do&nbsp;CRC16&nbsp;da&nbsp;informação&nbsp;contida&nbsp;no&nbsp;quadro,&nbsp;faz&nbsp;o&nbsp;estufamento<br>
+e&nbsp;logo&nbsp;em&nbsp;seguida&nbsp;escreve&nbsp;na&nbsp;serial,&nbsp;contendo&nbsp;as&nbsp;identificações&nbsp;do&nbsp;quadro&nbsp;+&nbsp;informação&nbsp;com&nbsp;CRC.</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-handle"><strong>handle</strong></a>(self)</dt><dd><tt>Evento&nbsp;onde&nbsp;o&nbsp;poller.py&nbsp;fica&nbsp;monitorando&nbsp;a&nbsp;serial&nbsp;que&nbsp;foi&nbsp;passada&nbsp;no&nbsp;construtor<br>
+assim&nbsp;que&nbsp;lê&nbsp;um&nbsp;byte,&nbsp;joga&nbsp;para&nbsp;máquina&nbsp;de&nbsp;estado&nbsp;<a href="#Enquadramento-handle_fsm">handle_fsm</a>()&nbsp;para&nbsp;enquadrar.<br>
+Caso</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-handle_fsm"><strong>handle_fsm</strong></a>(self, octeto)</dt><dd><tt>Essa&nbsp;máquina&nbsp;possui&nbsp;3&nbsp;estatos:&nbsp;Ocioso,&nbsp;Recp&nbsp;e&nbsp;Escape.<br>
+&nbsp;<br>
+Quando&nbsp;ocorre&nbsp;evento&nbsp;na&nbsp;serial,&nbsp;recebe&nbsp;um&nbsp;byte&nbsp;no&nbsp;octeto,&nbsp;assim&nbsp;que&nbsp;chegar&nbsp;um&nbsp;"~"<br>
+máquina&nbsp;identifica&nbsp;que&nbsp;se&nbsp;iniciou&nbsp;um&nbsp;quadro,&nbsp;passa&nbsp;para&nbsp;o&nbsp;estado&nbsp;Recp&nbsp;e&nbsp;análisa&nbsp;os<br>
+próximos&nbsp;octetos,&nbsp;quando&nbsp;receber&nbsp;"~"&nbsp;ele&nbsp;faz&nbsp;o&nbsp;cálculo&nbsp;do&nbsp;CRC16,&nbsp;se&nbsp;estiver&nbsp;sem&nbsp;<br>
+nenhum&nbsp;erro,&nbsp;notifica&nbsp;a&nbsp;camada&nbsp;ARQ&nbsp;e&nbsp;volta&nbsp;para&nbsp;ocioso.&nbsp;Escape&nbsp;ocorre&nbsp;quando&nbsp;se&nbsp;chega<br>
+algum&nbsp;octero&nbsp;"7D"</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-handle_timeout"><strong>handle_timeout</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Enquadramento-notifyLayer"><strong>notifyLayer</strong></a>(self, date)</dt><dd><tt>Notifica&nbsp;o&nbsp;ARQ&nbsp;quando&nbsp;acaba&nbsp;o&nbsp;<a href="#Enquadramento">Enquadramento</a>&nbsp;e&nbsp;não&nbsp;ocorre&nbsp;nenhum&nbsp;erro&nbsp;no&nbsp;CRC16</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-vem_top"><strong>vem_top</strong></a>(self, obj)</dt><dd><tt>Recebe&nbsp;um&nbsp;objeto&nbsp;do&nbsp;tipo&nbsp;ARQ&nbsp;para&nbsp;utilizar&nbsp;o&nbsp;método&nbsp;recebe_serial()&nbsp;do&nbsp;mesmo.<br>
+Responsável&nbsp;por&nbsp;enviar&nbsp;esse&nbsp;objeto&nbsp;é&nbsp;Envia.py&nbsp;e&nbsp;recebe.py&nbsp;ao&nbsp;iniciar.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>Escape</strong> = 3</dl>
+
+<dl><dt><strong>ocioso</strong> = 1</dl>
+
+<dl><dt><strong>recp</strong> = 2</dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Layer">poller.Layer</a>:<br>
+<dl><dt><a name="Enquadramento-get_framming"><strong>get_framming</strong></a>(self, dade)</dt></dl>
+
+<dl><dt><a name="Enquadramento-sendToLayer"><strong>sendToLayer</strong></a>(self, date)</dt></dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><a name="Enquadramento-disable"><strong>disable</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-disable_timeout"><strong>disable_timeout</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-enable"><strong>enable</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-enable_timeout"><strong>enable_timeout</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-reload_timeout"><strong>reload_timeout</strong></a>(self)</dt><dd><tt>Recarrega&nbsp;o&nbsp;valor&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="Enquadramento-update"><strong>update</strong></a>(self, dt)</dt><dd><tt>Atualiza&nbsp;o&nbsp;tempo&nbsp;restante&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><strong>isEnabled</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;estiver&nbsp;ativado&nbsp;neste&nbsp;callback</tt></dd>
+</dl>
+<dl><dt><strong>isTimer</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;este&nbsp;callback&nbsp;for&nbsp;um&nbsp;timer</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+</dl>
+<dl><dt><strong>timeout_enabled</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-xor"><strong>xor</strong></a>(...)</dt><dd><tt><a href="#-xor">xor</a>(a,&nbsp;b)&nbsp;--&nbsp;Same&nbsp;as&nbsp;a&nbsp;^&nbsp;b.</tt></dd></dl>
+</td></tr></table>
+</body></html>

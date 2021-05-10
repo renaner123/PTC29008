@@ -1,0 +1,98 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Get_Time</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Get_Time</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/renan/Área de trabalho/Projeto2/Versao2_Coap/Coap_Protocol/Get_Time.py">/home/renan/Área de trabalho/Projeto2/Versao2_Coap/Coap_Protocol/Get_Time.py</a></font></td></tr></table>
+    <p><tt>@author&nbsp;Renan&nbsp;Rodolfo&nbsp;da&nbsp;Silva</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="Projeto2_pb2.html">Projeto2_pb2</a><br>
+<a href="poller.html">poller</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="socket.html">socket</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="poller.html#Callback">poller.Callback</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Get_Time.html#CoapAPP">CoapAPP</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CoapAPP">class <strong>CoapAPP</strong></a>(<a href="poller.html#Callback">poller.Callback</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Classe&nbsp;responsável&nbsp;por&nbsp;criar&nbsp;uma&nbsp;aplicação&nbsp;para&nbsp;utilizar&nbsp;o&nbsp;CoAP&nbsp;Client<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="CoapAPP-Decod_Protobuffer_config"><strong>Decod_Protobuffer_config</strong></a>(self, payload)</dt><dd><tt>Recebe&nbsp;como&nbsp;parâmetro&nbsp;um&nbsp;payload&nbsp;codificado&nbsp;pelo&nbsp;Protocol&nbsp;Buffers,&nbsp;nessa&nbsp;aplicação<br>
+a&nbsp;decodificação&nbsp;foi&nbsp;necessária&nbsp;somente&nbsp;para&nbsp;se&nbsp;ter&nbsp;o&nbsp;valor&nbsp;do&nbsp;período&nbsp;que&nbsp;o&nbsp;servidor<br>
+deseja&nbsp;que&nbsp;seja&nbsp;transmistdas&nbsp;os&nbsp;dados&nbsp;dos&nbsp;sensores.</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-Protobuffer_Payload"><strong>Protobuffer_Payload</strong></a>(self)</dt><dd><tt>Gera&nbsp;a&nbsp;mensagem&nbsp;codificada&nbsp;com&nbsp;o&nbsp;Protocol&nbsp;Buffers&nbsp;e&nbsp;chama&nbsp;o&nbsp;método&nbsp;do&nbsp;protocolo&nbsp;<br>
+CoAP&nbsp;Client&nbsp;para&nbsp;enviar&nbsp;a&nbsp;mensagem,&nbsp;sendo&nbsp;esse&nbsp;método&nbsp;o&nbsp;Do_Post().</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-Set_Periodo"><strong>Set_Periodo</strong></a>(self, periodo)</dt><dd><tt>Recebe&nbsp;como&nbsp;parâmetro&nbsp;um&nbsp;valor&nbsp;em&nbsp;milisegundos&nbsp;e&nbsp;setar&nbsp;o&nbsp;timeout&nbsp;para&nbsp;envio&nbsp;de&nbsp;mensagens&nbsp;periódicas.</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-__init__"><strong>__init__</strong></a>(self, Placa, Sensores, Uris)</dt><dd><tt>Construtor&nbsp;do&nbsp;<a href="#CoapAPP">CoapAPP</a>:<br>
+Recebe&nbsp;como&nbsp;parâmetro&nbsp;o&nbsp;nome&nbsp;da&nbsp;placa,&nbsp;uma&nbsp;lista&nbsp;contento&nbsp;a&nbsp;lista&nbsp;de&nbsp;sensores&nbsp;e&nbsp;o&nbsp;destino&nbsp;da&nbsp;URI<br>
+a&nbsp;ser&nbsp;enviado&nbsp;os&nbsp;dados.&nbsp;Nessa&nbsp;aplicação&nbsp;os&nbsp;valores&nbsp;enviados&nbsp;são&nbsp;gerados&nbsp;randomicamente.</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-handle"><strong>handle</strong></a>(self)</dt><dd><tt>Não&nbsp;utilizado.</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-handle_timeout"><strong>handle_timeout</strong></a>(self)</dt><dd><tt>handle_timeout&nbsp;nessa&nbsp;aplicação&nbsp;é&nbsp;responsável&nbsp;por&nbsp;receber&nbsp;o&nbsp;payload&nbsp;que&nbsp;o&nbsp;protocolo&nbsp;recebe&nbsp;do&nbsp;<br>
+servidor,&nbsp;que&nbsp;no&nbsp;caso&nbsp;é&nbsp;uma&nbsp;mensagem&nbsp;config&nbsp;contendo&nbsp;o&nbsp;periodo&nbsp;que&nbsp;o&nbsp;servidor&nbsp;deseja&nbsp;que&nbsp;seja<br>
+transmitido&nbsp;os&nbsp;dados&nbsp;dos&nbsp;sensores.&nbsp;Essa&nbsp;mensagem&nbsp;é&nbsp;decodifica&nbsp;através&nbsp;do&nbsp;Protocol&nbsp;Buffers.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><a name="CoapAPP-disable"><strong>disable</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-disable_timeout"><strong>disable_timeout</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-enable"><strong>enable</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-enable_timeout"><strong>enable_timeout</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-reload_timeout"><strong>reload_timeout</strong></a>(self)</dt><dd><tt>Recarrega&nbsp;o&nbsp;valor&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="CoapAPP-update"><strong>update</strong></a>(self, dt)</dt><dd><tt>Atualiza&nbsp;o&nbsp;tempo&nbsp;restante&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><strong>isEnabled</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;estiver&nbsp;ativado&nbsp;neste&nbsp;callback</tt></dd>
+</dl>
+<dl><dt><strong>isTimer</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;este&nbsp;callback&nbsp;for&nbsp;um&nbsp;timer</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+</dl>
+<dl><dt><strong>timeout_enabled</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

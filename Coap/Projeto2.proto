@@ -1,0 +1,36 @@
+syntax = "proto2";
+ 
+package sensor;
+ 
+message Sensor {
+  // nome do sensor
+  required string nome = 1;
+ 
+  // valor amostrado do sensor
+  required int32 valor = 2; 
+ 
+  // timestamp da amostragem, em milissegundos desde 1/1/2019 0:0:0
+  optional int32 timestamp = 3;
+}
+ 
+message Config {
+  // periodo dado em milissegundos
+  required int32 periodo = 1;
+ 
+  // lista de nomes de sensores
+  repeated string sensores = 2;  
+}
+ 
+message Dados {
+  // lista de sensores com seus valores amostrados e timestamp
+  repeated Sensor amostras = 1;
+}
+ 
+// Mensagem genérica: encapsula uma mensagem Config OU uma mensagem Dados
+message Mensagem {
+  required string placa = 1;
+  oneof msg {
+    Config config = 2;
+    Dados dados = 3;
+  }
+}

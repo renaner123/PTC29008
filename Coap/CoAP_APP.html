@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Coap_Client</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Coap_Client</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/renan/Área de trabalho/Projeto2/Versao2_Coap/Coap_Protocol/Coap_Client.py">/home/renan/Área de trabalho/Projeto2/Versao2_Coap/Coap_Protocol/Coap_Client.py</a></font></td></tr></table>
+    <p><tt>@author&nbsp;Renan&nbsp;Rodolfo&nbsp;da&nbsp;Silva</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="Projeto2_pb2.html">Projeto2_pb2</a><br>
+<a href="poller.html">poller</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="socket.html">socket</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="poller.html#Callback">poller.Callback</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="Coap_Client.html#COAP">COAP</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="COAP">class <strong>COAP</strong></a>(<a href="poller.html#Callback">poller.Callback</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Classe&nbsp;responsável&nbsp;por&nbsp;construir&nbsp;o&nbsp;protocolo&nbsp;CoAP&nbsp;Client<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="COAP-Ack_Response"><strong>Ack_Response</strong></a>(self)</dt><dd><tt>**&nbsp;Função&nbsp;interna&nbsp;do&nbsp;protocolo,&nbsp;não&nbsp;deve&nbsp;ser&nbsp;chamada&nbsp;por&nbsp;uma&nbsp;aplicação,&nbsp;**<br>
+&nbsp;<br>
+Monta&nbsp;uma&nbsp;mensagem&nbsp;de&nbsp;resposta&nbsp;apenas&nbsp;para&nbsp;ser&nbsp;usado&nbsp;como&nbsp;comparação&nbsp;para&nbsp;quando&nbsp;receber<br>
+algum&nbsp;datagrama.</tt></dd></dl>
+
+<dl><dt><a name="COAP-Do_Get"><strong>Do_Get</strong></a>(self, Uri, Payload)</dt><dd><tt>Recebe&nbsp;uma&nbsp;Uri&nbsp;e&nbsp;um&nbsp;payload.&nbsp;Monta&nbsp;uma&nbsp;mensagem&nbsp;com&nbsp;Code&nbsp;GET&nbsp;e&nbsp;envia&nbsp;para&nbsp;o&nbsp;handle_fsm<br>
+fazer&nbsp;a&nbsp;tratativa.&nbsp;Logo&nbsp;em&nbsp;seguida&nbsp;faz&nbsp;o&nbsp;despache&nbsp;para&nbsp;o&nbsp;poller&nbsp;monitorar&nbsp;os&nbsp;eventos<br>
+futuros.</tt></dd></dl>
+
+<dl><dt><a name="COAP-Do_Post"><strong>Do_Post</strong></a>(self, Uri, Payload)</dt><dd><tt>Recebe&nbsp;uma&nbsp;Uri&nbsp;e&nbsp;um&nbsp;payload.&nbsp;Monta&nbsp;uma&nbsp;mensagem&nbsp;com&nbsp;Code&nbsp;POST&nbsp;e&nbsp;envia&nbsp;para&nbsp;o&nbsp;handle_fsm<br>
+fazer&nbsp;a&nbsp;tratativa.&nbsp;Logo&nbsp;em&nbsp;seguida&nbsp;faz&nbsp;o&nbsp;despache&nbsp;para&nbsp;o&nbsp;poller&nbsp;monitorar&nbsp;os&nbsp;eventos<br>
+futuros.</tt></dd></dl>
+
+<dl><dt><a name="COAP-Push_Ack"><strong>Push_Ack</strong></a>(self, MID1, MID2, TOKEN)</dt><dd><tt>**&nbsp;Função&nbsp;interna&nbsp;do&nbsp;protocolo,&nbsp;não&nbsp;deve&nbsp;ser&nbsp;chamada&nbsp;por&nbsp;uma&nbsp;aplicação,&nbsp;**<br>
+&nbsp;<br>
+Recebe&nbsp;como&nbsp;parâmetro&nbsp;os&nbsp;dois&nbsp;bytes&nbsp;contidos&nbsp;na&nbsp;Message&nbsp;ID&nbsp;e&nbsp;o&nbsp;Token&nbsp;de&nbsp;1&nbsp;byte.<br>
+Monta&nbsp;uma&nbsp;mensagem&nbsp;de&nbsp;confirmação&nbsp;com&nbsp;payload&nbsp;vazio</tt></dd></dl>
+
+<dl><dt><a name="COAP-Reload_Timeout_Ack"><strong>Reload_Timeout_Ack</strong></a>(self, value)</dt><dd><tt>**&nbsp;Função&nbsp;interna&nbsp;do&nbsp;protocolo,&nbsp;não&nbsp;deve&nbsp;ser&nbsp;chamada&nbsp;por&nbsp;uma&nbsp;aplicação,&nbsp;**<br>
+&nbsp;<br>
+O&nbsp;tempo&nbsp;da&nbsp;retransmissão&nbsp;é&nbsp;calculado&nbsp;como&nbsp;(2+4+8+16)*ACK_TIMEOUT_FACTOR,&nbsp;onde&nbsp;a&nbsp;primeira<br>
+transmissão&nbsp;é&nbsp;2*ACK_TIMEOUT_FACTOR,&nbsp;segunda&nbsp;4*ACK_TIMEOUT_FACTOR&nbsp;e&nbsp;assim&nbsp;por&nbsp;diante.&nbsp;<br>
+Resultando&nbsp;em&nbsp;um&nbsp;total&nbsp;de&nbsp;4&nbsp;tentativas&nbsp;de&nbsp;retransmissão,&nbsp;não&nbsp;ultrapassando&nbsp;o&nbsp;tempo<br>
+máximo&nbsp;de&nbsp;45&nbsp;segundos&nbsp;estipulado&nbsp;pela&nbsp;RFC.</tt></dd></dl>
+
+<dl><dt><a name="COAP-Return_Base_Timeout"><strong>Return_Base_Timeout</strong></a>(self)</dt><dd><tt>Retorna&nbsp;o&nbsp;valor&nbsp;do&nbsp;timeout&nbsp;para&nbsp;o&nbsp;valor&nbsp;que&nbsp;foi&nbsp;definido&nbsp;como&nbsp;padrão.&nbsp;No&nbsp;caso<br>
+foi&nbsp;2*ACK_TIMEOUT_FACTOR</tt></dd></dl>
+
+<dl><dt><a name="COAP-Set_Periodo"><strong>Set_Periodo</strong></a>(self, periodo)</dt><dd><tt>Recebe&nbsp;uma&nbsp;valor&nbsp;em&nbsp;milisegundos&nbsp;para&nbsp;ser&nbsp;utilizado&nbsp;como&nbsp;tempo&nbsp;de&nbsp;envio&nbsp;de&nbsp;dados.<br>
+No&nbsp;caso,&nbsp;irá&nbsp;ficar&nbsp;enviando&nbsp;dados&nbsp;coletados&nbsp;a&nbsp;cada&nbsp;periodo&nbsp;recebido.</tt></dd></dl>
+
+<dl><dt><a name="COAP-__init__"><strong>__init__</strong></a>(self, ip, Uri)</dt><dd><tt>Construtor&nbsp;do&nbsp;CoAP:<br>
+Recebe&nbsp;como&nbsp;parâmetro&nbsp;um&nbsp;IP(IVP6)&nbsp;mais&nbsp;a&nbsp;Uri&nbsp;que&nbsp;será&nbsp;utilizada&nbsp;como&nbsp;destino&nbsp;ao&nbsp;enviar&nbsp;mensagens<br>
+para&nbsp;o&nbsp;servidor.&nbsp;<br>
+Cria&nbsp;um&nbsp;socket&nbsp;e&nbsp;vincula-o&nbsp;com&nbsp;o&nbsp;IP&nbsp;fornecido.</tt></dd></dl>
+
+<dl><dt><a name="COAP-handle"><strong>handle</strong></a>(self)</dt><dd><tt>Fica&nbsp;monitorando&nbsp;o&nbsp;socket&nbsp;criado&nbsp;para&nbsp;caso&nbsp;receber&nbsp;alguma&nbsp;mensagem,&nbsp;enviar&nbsp;para<br>
+máquina&nbsp;de&nbsp;estado&nbsp;tratar.&nbsp;Recebe&nbsp;mensagem&nbsp;de&nbsp;até&nbsp;2048&nbsp;bytes.</tt></dd></dl>
+
+<dl><dt><a name="COAP-handle_fsm"><strong>handle_fsm</strong></a>(self, data)</dt><dd><tt>Máquina&nbsp;de&nbsp;estado&nbsp;responsável&nbsp;por&nbsp;enviar&nbsp;as&nbsp;mensagens&nbsp;assim&nbsp;que&nbsp;a&nbsp;aplicação&nbsp;faz&nbsp;uma&nbsp;<br>
+requisição,&nbsp;assim&nbsp;como&nbsp;trata&nbsp;um&nbsp;datagrama&nbsp;recebido&nbsp;do&nbsp;servidor.<br>
+Nesse&nbsp;protocolo&nbsp;desenvoldido,&nbsp;o&nbsp;estado&nbsp;idle&nbsp;é&nbsp;o&nbsp;responsável&nbsp;por&nbsp;enviar&nbsp;o&nbsp;datagrama&nbsp;<br>
+contendo&nbsp;as&nbsp;configurações&nbsp;da&nbsp;API&nbsp;assim&nbsp;que&nbsp;é&nbsp;iniciada.<br>
+O&nbsp;Estado&nbsp;wait&nbsp;fica&nbsp;aguardando&nbsp;uma&nbsp;resposta&nbsp;do&nbsp;servidor,&nbsp;caso&nbsp;envie&nbsp;uma&nbsp;mensagem&nbsp;piggybacked&nbsp;<br>
+salva&nbsp;o&nbsp;valor&nbsp;recebido&nbsp;para&nbsp;aplicação&nbsp;coletar&nbsp;o&nbsp;payload.<br>
+Wait2&nbsp;seria&nbsp;caso&nbsp;o&nbsp;servidor&nbsp;enviasse&nbsp;apenas&nbsp;um&nbsp;Ack&nbsp;estando&nbsp;no&nbsp;Wait,&nbsp;ele&nbsp;fica&nbsp;esperando<br>
+o&nbsp;recebimento&nbsp;da&nbsp;resposta.</tt></dd></dl>
+
+<dl><dt><a name="COAP-handle_timeout"><strong>handle_timeout</strong></a>(self)</dt><dd><tt>handle_timeout&nbsp;é&nbsp;o&nbsp;responsável&nbsp;por&nbsp;fazer&nbsp;a&nbsp;retranmissão&nbsp;caso&nbsp;alguma&nbsp;mensagem&nbsp;<a href="#COAP">COAP</a><br>
+seja&nbsp;enviada&nbsp;e&nbsp;não&nbsp;receba&nbsp;nenhuma&nbsp;resposta&nbsp;do&nbsp;servidor.&nbsp;Tempo&nbsp;utilizado&nbsp;para&nbsp;isso<br>
+esta&nbsp;descrito&nbsp;em&nbsp;Reload_Timeout_ack()</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ACK_TIMEOUT</strong> = 2</dl>
+
+<dl><dt><strong>ACK_TIMEOUT_FACTOR</strong> = 1.0138898151450066</dl>
+
+<dl><dt><strong>Delta1_Path</strong> = 176</dl>
+
+<dl><dt><strong>Delta2_Path</strong> = 0</dl>
+
+<dl><dt><strong>MAX_RETRANSMIT</strong> = 4</dl>
+
+<dl><dt><strong>Teste_Get</strong> = None</dl>
+
+<dl><dt><strong>end</strong> = 255</dl>
+
+<dl><dt><strong>idle</strong> = 0</dl>
+
+<dl><dt><strong>wait</strong> = 1</dl>
+
+<dl><dt><strong>wait2</strong> = 2</dl>
+
+<hr>
+Methods inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><a name="COAP-disable"><strong>disable</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="COAP-disable_timeout"><strong>disable_timeout</strong></a>(self)</dt><dd><tt>Desativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="COAP-enable"><strong>enable</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;neste&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="COAP-enable_timeout"><strong>enable_timeout</strong></a>(self)</dt><dd><tt>Reativa&nbsp;o&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="COAP-reload_timeout"><strong>reload_timeout</strong></a>(self)</dt><dd><tt>Recarrega&nbsp;o&nbsp;valor&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<dl><dt><a name="COAP-update"><strong>update</strong></a>(self, dt)</dt><dd><tt>Atualiza&nbsp;o&nbsp;tempo&nbsp;restante&nbsp;de&nbsp;timeout</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="poller.html#Callback">poller.Callback</a>:<br>
+<dl><dt><strong>isEnabled</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;monitoramento&nbsp;do&nbsp;descritor&nbsp;estiver&nbsp;ativado&nbsp;neste&nbsp;callback</tt></dd>
+</dl>
+<dl><dt><strong>isTimer</strong></dt>
+<dd><tt>true&nbsp;se&nbsp;este&nbsp;callback&nbsp;for&nbsp;um&nbsp;timer</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+</dl>
+<dl><dt><strong>timeout_enabled</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
+    
